@@ -85,6 +85,21 @@ trait Attributable
     }
 
     /**
+     * Delete special attribute.
+     *
+     * @param  string $title
+     * @param  string $value
+     * @return int
+     */
+    public function deleteAttribute(string $title, string $value)
+    {
+        return $this->getAttributeWhere()
+            ->where('title', $title)
+            ->where('value', $value)
+            ->delete();
+    }
+
+    /**
      * Get attribute with this (model).
      *
      * @return MorphMany
