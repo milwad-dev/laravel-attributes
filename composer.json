@@ -1,0 +1,40 @@
+{
+  "name": "milwad-dev/laravel-attributes",
+  "description": "Make attributes easy",
+  "keywords": [
+      "milwad",
+      "milwad-dev",
+      "laravel-attributes",
+      "easy attributes",
+      "laravel",
+      "laravel attributes package",
+  ],
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+      {
+          "name": "milwad khosravi",
+          "email": "milwad.dev@gmail.com",
+          "homepage": "https://milwad.ir",
+          "role": "Developer"
+      }
+  ],
+  "require": {
+    "php": "^8.0|^8.1",
+  },
+  "autoload": {
+      "psr-4": {
+          "Milwad\\LaravelAttributes\\": "src/"
+      }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+      "laravel": {
+          "providers": [
+              "Milwad\\LaravelAttributes\\LaravelAttributesServiceProvider"
+          ]
+      }
+  }
+}
