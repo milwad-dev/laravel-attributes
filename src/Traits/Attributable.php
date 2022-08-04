@@ -26,7 +26,7 @@ trait Attributable
             'attributable' => get_class($model),
         ];
 
-        return Attribute::query()->firstOrCreate($attributes);
+        return Attribute::query()->create($attributes);
     }
 
     /**
@@ -45,7 +45,7 @@ trait Attributable
      * @param  string $value
      * @return bool
      */
-    public function hasAttributeValue(string$value)
+    public function hasAttributeValue(string $value)
     {
         return (bool) $this->getAttributeWhere()
             ->where('value', $value)
