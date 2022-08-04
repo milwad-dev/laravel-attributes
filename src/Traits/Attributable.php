@@ -29,7 +29,7 @@ trait Attributable
             'attributable' => get_class($model),
         ];
 
-        return Attribute::query()->create($attributes);
+        return Attribute::query()->firstOrCreate($attributes);
     }
 
     /**
@@ -50,7 +50,7 @@ trait Attributable
      */
     public function hasAttributeValue(string$value)
     {
-        return (bool) $this->getAttribute()
+        return (bool) $this->getAttributeWhere()
             ->where('value', $value)
             ->first();
     }
@@ -63,9 +63,25 @@ trait Attributable
      */
     public function hasAttributeTitle(string $title)
     {
-        return (bool) $this->getAttribute()
+        return (bool) $this->getAttributeWhere()
             ->where('title', $title)
             ->first();
+    }
+
+    /**
+     * Delete all attributes.
+     *
+     * @return Attributable
+     */
+    public function deleteAllAttribute()
+    {
+        $attributes = $this->getAttributeWhere()->get();
+
+        foreach ($attributes as $attribute) {
+            $attribute->delete();
+        }
+
+        return $this;
     }
 
     /**
@@ -73,7 +89,7 @@ trait Attributable
      *
      * @return MorphMany
      */
-    private function getAttribute(): \Illuminate\Database\Eloquent\Relations\MorphMany
+    private function getAttributeWhere(): \Illuminate\Database\Eloquent\Relations\MorphMany
     {
         return $this->attributes()
             ->where('attributable_id', $this->getKey())
