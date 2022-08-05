@@ -5,7 +5,7 @@ With laravel attributes you can make attributes for all model (Polymorphic)
 
 # Requirements
 ***
-- PHP >= 8.3
+- PHP >= 7.3
 
 # Installation
 ***
