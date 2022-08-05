@@ -45,7 +45,7 @@ $product = Product::query()->create([
     'content' => 'laravel attributes',
 ]);
 
-$product->attachAttribute('age', '17', $product);
+$product->attachAttribute('age', '17');
 ```
 
 ## Save attribute multiple
