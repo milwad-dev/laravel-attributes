@@ -14,16 +14,15 @@ trait Attributable
      *
      * @param  string $title
      * @param  string $value
-     * @param  Model $model
      * @return Builder|Model
      */
-    public function attachAttribute(string $title, string $value, Model $model)
+    public function attachAttribute(string $title, string $value)
     {
         $attributes = [
             'title' => $title,
             'value' => $value,
-            'attributable_id' => $model->getKey(),
-            'attributable' => get_class($model),
+            'attributable_id' => $this->getKey(),
+            'attributable' => get_class($this),
         ];
 
         return Attribute::query()->create($attributes);
