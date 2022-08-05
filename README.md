@@ -83,7 +83,7 @@ $data = [
 ];
 
 foreach ($data as $content) {
-    $product->attachAttribute($content['title'], $content['value'], $product);
+    $product->attachAttribute($content['title'], $content['value']);
 }
 ```
 
