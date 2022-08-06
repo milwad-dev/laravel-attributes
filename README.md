@@ -23,7 +23,7 @@ php artisan migrate
 
 # Usage
 First, you use trait in model.
-```
+```php
 <?php
 
 namespace App\Models;
