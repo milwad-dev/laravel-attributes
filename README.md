@@ -39,7 +39,7 @@ class Product extends Model
 ```
 
 ## Save attribute
-```
+```php
 $product = Product::query()->create([
     'name' => 'milwad',
     'content' => 'laravel attributes',
@@ -49,7 +49,7 @@ $product->attachAttribute('age', '17');
 ```
 
 ## Save attribute multiple
-```
+```php
 $product = Product::query()->create([
     'name' => 'milwad',
     'content' => 'text',
@@ -88,12 +88,12 @@ foreach ($data as $content) {
 ```
 
 ## Get attributes with query
-```
+```php
 Product::query()->with('attributes')->get();
 ```
 
 ## Check attribute value is exists
-```
+```php
 if ($product->hasAttributeValue('17')) {
     return 'attribute value';
 }
@@ -102,7 +102,7 @@ return 'no attribute value';
 ```
 
 ## Check attribute value is exists
-```
+```php
 if ($product->hasAttributeTitle('milwad')) {
     return 'attribute title';
 }
@@ -111,12 +111,12 @@ return 'no attribute title';
 ```
 
 ## Delete all attributes
-```
+```php
 $product->deleteAllAttribute();
 ```
 
 ## Delete special attributes
-```
+```php
 $product->deleteAttribute('title', 'value');
 ```
 
