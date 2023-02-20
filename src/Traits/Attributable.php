@@ -3,12 +3,15 @@
 namespace Milwad\LaravelAttributes\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Concerns\HasRelationships;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Milwad\LaravelAttributes\Attribute;
 
 trait Attributable
 {
+    use HasRelationships;
+
     /**
      * First or create attributes.
      *
