@@ -5,7 +5,10 @@ With laravel attributes you can make attributes for all model (Polymorphic)
 
 # Requirements
 ***
+```
 - PHP >= 7.3
+- Laravel >= 7.0
+```
 
 # Installation
 ***
