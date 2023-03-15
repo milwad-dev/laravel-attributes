@@ -13,7 +13,17 @@ trait Attributable
     use HasRelationships;
 
     /**
-     * First or create attributes.
+     * Get attributes
+     *
+     * @return MorphMany
+     */
+    public function attributes()
+    {
+        return $this->morphMany(Attribute::class , 'attributable', 'attributable');
+    }
+
+    /**
+     * Attach attribute.
      *
      * @param  string $title
      * @param  string $value
@@ -31,14 +41,16 @@ trait Attributable
         return Attribute::query()->create($attributes);
     }
 
+
     /**
-     * Get attributes
+     * Attach multiple attributes.
      *
-     * @return MorphMany
+     * @param  array $values
+     * @return bool
      */
-    public function attributes()
+    public function attachAttributes(array $values)
     {
-        return $this->morphMany(Attribute::class , 'attributable', 'attributable');
+        return Attribute::query()->insert($values);
     }
 
     /**
