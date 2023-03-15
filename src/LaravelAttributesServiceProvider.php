@@ -8,24 +8,18 @@ class LaravelAttributesServiceProvider extends ServiceProvider
 {
     /**
      * Get config path.
-     *
-     * @var string
      */
-    private string $config_path = __DIR__ . '/../config/laravel-attributes.php';
+    private string $config_path = __DIR__.'/../config/laravel-attributes.php';
 
     /**
      * Get config name.
-     *
-     * @var string
      */
     private string $config_name = 'laravel-attributes';
 
     /**
      * Get migration path.
-     *
-     * @var string
      */
-    private string $migration_path = __DIR__ . '/../migrations/';
+    private string $migration_path = __DIR__.'/../migrations/';
 
     /**
      * Register files.
@@ -34,9 +28,9 @@ class LaravelAttributesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->loadMigrationsFrom($this->migration_path); // Load migrations
-        $this->mergeConfigFrom($this->config_path, $this->config_name); // Load config file
-        $this->publishPackageFiles(); // Load package files
+        $this->loadMigrationsFrom($this->migration_path);
+        $this->mergeConfigFrom($this->config_path, $this->config_name);
+        $this->publishPackageFiles();
     }
 
     /**
@@ -48,12 +42,12 @@ class LaravelAttributesServiceProvider extends ServiceProvider
     {
         // Publish config
         $this->publishes([
-            $this->config_path => config_path("$this->config_name.php")
-        ], 'config');
+            $this->config_path => config_path("$this->config_name.php"),
+        ], 'laravel-attributes-config');
 
         // Publish migrations
         $this->publishes([
-            $this->migration_path => database_path('migrations')
-        ], 'migrations');
+            $this->migration_path => database_path('migrations'),
+        ], 'laravel-attributes-migrations');
     }
 }

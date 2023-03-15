@@ -13,10 +13,18 @@ trait Attributable
     use HasRelationships;
 
     /**
-     * First or create attributes.
+     * Get attributes
      *
-     * @param  string $title
-     * @param  string $value
+     * @return MorphMany
+     */
+    public function attributes()
+    {
+        return $this->morphMany(Attribute::class, 'attributable', 'attributable');
+    }
+
+    /**
+     * Attach attribute.
+     *
      * @return Builder|Model
      */
     public function attachAttribute(string $title, string $value)
@@ -32,19 +40,18 @@ trait Attributable
     }
 
     /**
-     * Get attributes
+     * Attach multiple attributes.
      *
-     * @return MorphMany
+     * @return bool
      */
-    public function attributes()
+    public function attachAttributes(array $values)
     {
-        return $this->morphMany(Attribute::class , 'attributable', 'attributable');
+        return Attribute::query()->insert($values);
     }
 
     /**
      * Check attribute have special value.
      *
-     * @param  string $value
      * @return bool
      */
     public function hasAttributeValue(string $value)
@@ -57,7 +64,6 @@ trait Attributable
     /**
      * Check attribute have special title.
      *
-     * @param  string $title
      * @return bool
      */
     public function hasAttributeTitle(string $title)
@@ -86,8 +92,6 @@ trait Attributable
     /**
      * Delete special attribute.
      *
-     * @param  string $title
-     * @param  string $value
      * @return int
      */
     public function deleteAttribute(string $title, string $value)
@@ -100,10 +104,8 @@ trait Attributable
 
     /**
      * Get attribute with this (model).
-     *
-     * @return MorphMany
      */
-    private function getAttributeWhere(): \Illuminate\Database\Eloquent\Relations\MorphMany
+    private function getAttributeWhere(): MorphMany
     {
         return $this->attributes()
             ->where('attributable_id', $this->getKey())

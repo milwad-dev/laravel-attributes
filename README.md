@@ -85,9 +85,7 @@ $data = [
     ],
 ];
 
-foreach ($data as $content) {
-    $product->attachAttribute($content['title'], $content['value']);
-}
+$product->attachAttributes($data);
 ```
 
 ## Get attributes with query
