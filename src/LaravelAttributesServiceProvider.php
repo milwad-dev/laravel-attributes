@@ -8,24 +8,18 @@ class LaravelAttributesServiceProvider extends ServiceProvider
 {
     /**
      * Get config path.
-     *
-     * @var string
      */
-    private string $config_path = __DIR__ . '/../config/laravel-attributes.php';
+    private string $config_path = __DIR__.'/../config/laravel-attributes.php';
 
     /**
      * Get config name.
-     *
-     * @var string
      */
     private string $config_name = 'laravel-attributes';
 
     /**
      * Get migration path.
-     *
-     * @var string
      */
-    private string $migration_path = __DIR__ . '/../migrations/';
+    private string $migration_path = __DIR__.'/../migrations/';
 
     /**
      * Register files.
@@ -48,12 +42,12 @@ class LaravelAttributesServiceProvider extends ServiceProvider
     {
         // Publish config
         $this->publishes([
-            $this->config_path => config_path("$this->config_name.php")
+            $this->config_path => config_path("$this->config_name.php"),
         ], 'laravel-attributes-config');
 
         // Publish migrations
         $this->publishes([
-            $this->migration_path => database_path('migrations')
+            $this->migration_path => database_path('migrations'),
         ], 'laravel-attributes-migrations');
     }
 }
