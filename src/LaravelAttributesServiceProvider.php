@@ -34,9 +34,9 @@ class LaravelAttributesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->loadMigrationsFrom($this->migration_path); // Load migrations
-        $this->mergeConfigFrom($this->config_path, $this->config_name); // Load config file
-        $this->publishPackageFiles(); // Load package files
+        $this->loadMigrationsFrom($this->migration_path);
+        $this->mergeConfigFrom($this->config_path, $this->config_name);
+        $this->publishPackageFiles();
     }
 
     /**
@@ -49,11 +49,11 @@ class LaravelAttributesServiceProvider extends ServiceProvider
         // Publish config
         $this->publishes([
             $this->config_path => config_path("$this->config_name.php")
-        ], 'config');
+        ], 'laravel-attributes-config');
 
         // Publish migrations
         $this->publishes([
             $this->migration_path => database_path('migrations')
-        ], 'migrations');
+        ], 'laravel-attributes-migrations');
     }
 }
