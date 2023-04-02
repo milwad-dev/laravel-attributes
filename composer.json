@@ -32,6 +32,11 @@
           "Milwad\\LaravelAttributes\\": "src/"
       }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Milwad\\LaravelAttributes\\Tests\\": "tests/"
+    }
+  },
   "config": {
     "sort-packages": true,
     "allow-plugins": {
