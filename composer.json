@@ -47,6 +47,7 @@
       }
   },
   "require-dev": {
-    "pestphp/pest": "2.x-dev"
+    "pestphp/pest": "2.x-dev",
+    "pestphp/pest-plugin-laravel": "2.x-dev"
   }
 }
