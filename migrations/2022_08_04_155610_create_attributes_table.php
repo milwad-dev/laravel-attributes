@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create(config('laravel-attributes.tables.name'), function (Blueprint $table) {
+        Schema::create(config('laravel-attributes.tables.name', 'attributes'), function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->text('value');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('laravel-attributes.tables.name'));
+        Schema::dropIfExists(config('laravel-attributes.tables.name', 'attributes'));
     }
 };
