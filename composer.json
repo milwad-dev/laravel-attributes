@@ -29,7 +29,10 @@
       }
   },
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
   },
   "extra": {
       "laravel": {
@@ -42,5 +45,8 @@
           "dev-main" : "0.x-dev"
         }
       }
+  },
+  "require-dev": {
+    "pestphp/pest": "2.x-dev"
   }
 }
