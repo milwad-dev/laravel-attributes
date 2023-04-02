@@ -56,9 +56,9 @@ trait Attributable
      */
     public function hasAttributeValue(string $value)
     {
-        return (bool) $this->getAttributeWhere()
+        return $this->getAttributeWhere()
             ->where('value', $value)
-            ->first();
+            ->exists();
     }
 
     /**
@@ -68,9 +68,9 @@ trait Attributable
      */
     public function hasAttributeTitle(string $title)
     {
-        return (bool) $this->getAttributeWhere()
+        return $this->getAttributeWhere()
             ->where('title', $title)
-            ->first();
+            ->exists();
     }
 
     /**
