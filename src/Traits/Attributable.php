@@ -30,10 +30,10 @@ trait Attributable
     public function attachAttribute(string $title, string $value)
     {
         $attributes = [
-            'title'           => $title,
-            'value'           => $value,
+            'title' => $title,
+            'value' => $value,
             'attributable_id' => $this->getKey(),
-            'attributable'    => get_class($this),
+            'attributable' => get_class($this),
         ];
 
         return Attribute::query()->create($attributes);
