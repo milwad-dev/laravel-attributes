@@ -23,6 +23,10 @@
     "php": "^7.3|7.4.*|8.0.*|8.1.*|8.2.*",
     "laravel/framework": "7.*|8.*|9.*|10.*"
   },
+  "require-dev": {
+    "pestphp/pest": "2.x-dev",
+    "pestphp/pest-plugin-laravel": "2.x-dev"
+  },
   "autoload": {
       "psr-4": {
           "Milwad\\LaravelAttributes\\": "src/"
@@ -45,9 +49,5 @@
           "dev-main" : "0.x-dev"
         }
       }
-  },
-  "require-dev": {
-    "pestphp/pest": "2.x-dev",
-    "pestphp/pest-plugin-laravel": "2.x-dev"
   }
 }
