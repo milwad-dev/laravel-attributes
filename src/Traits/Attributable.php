@@ -42,11 +42,18 @@ trait Attributable
     /**
      * Attach multiple attributes.
      *
-     * @return bool
+     * @return $this
      */
     public function attachAttributes(array $values)
     {
-        return Attribute::query()->insert($values);
+        foreach ($values as $value) {
+            $value['attributable_id'] = $this->getKey();
+            $value['attributable'] = get_class($this);
+
+            Attribute::query()->create($value);
+        }
+
+        return $this;
     }
 
     /**
