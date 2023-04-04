@@ -27,7 +27,7 @@ test('test can attach multiple attributes to model', function () {
         [
             'title' => 'framework',
             'value' => 'laravel',
-        ]
+        ],
     ]);
 
     assertDatabaseCount('products', 1);
