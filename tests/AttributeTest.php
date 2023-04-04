@@ -9,7 +9,7 @@ use function Pest\Laravel\assertDatabaseCount;
 
 uses(RefreshDatabase::class);
 
-test('test can attach attributes to product', function () {
+test('test can attach attributes to model', function () {
     $product = Product::query()->create(['title' => 'milwad-dev']);
     $product->attachAttribute('name', 'reza');
 
