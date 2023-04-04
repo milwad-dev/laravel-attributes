@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Milwad\LaravelAttributes\Tests;
 
 use Milwad\LaravelAttributes\LaravelAttributesServiceProvider;
 
