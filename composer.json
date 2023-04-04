@@ -24,7 +24,7 @@
     "laravel/framework": "9.*|10.*"
   },
   "require-dev": {
-    "orchestra/testbench": "dev-develop",
+    "orchestra/testbench": "^7.0 || ^8.0",
     "pestphp/pest": "^1.0",
     "pestphp/pest-plugin-laravel": "^1.0"
   },
