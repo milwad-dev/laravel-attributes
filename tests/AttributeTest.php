@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Milwad\LaravelAttributes\Tests\SetUp\Models\Product;
 
 use function Pest\Laravel\assertDatabaseCount;
+use function PHPUnit\Framework\assertEmpty;
 
 uses(RefreshDatabase::class);
 
@@ -30,4 +31,11 @@ test('test can attach multiple attributes to model', function () {
     ]);
 
     assertDatabaseCount('products', 1);
+});
+
+test('test attributes can retrieve in model relation', function () {
+    Product::query()->create(['title' => 'milwad-dev']);
+    $product = Product::query()->with('attributes')->first();
+
+    assertEmpty($product->attributes()->get());
 });
