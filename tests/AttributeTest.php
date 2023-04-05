@@ -64,3 +64,12 @@ test('test can attribute delete from model', function () {
 
     assertDatabaseCount('products', 1);
 });
+
+test('test can delete all attributes of one model', function () {
+    $product = Product::query()->create(['title' => 'milwad-dev']);
+    $product->attachAttribute('role', 'developer');
+    $product->attachAttribute('stack', 'laravel');
+    $product->deleteAllAttribute();
+
+    assertDatabaseCount('products', 1);
+});
