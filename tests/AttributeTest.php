@@ -56,3 +56,11 @@ test('test product has attribute title', function () {
     assertDatabaseCount('products', 1);
     assertNotEmpty($product->hasAttributeTitle($title));
 });
+
+test('test can attribute delete from model', function () {
+    $product = Product::query()->create(['title' => 'milwad-dev']);
+    $product->attachAttribute($title = 'role', $value = 'developer');
+    $product->deleteAttribute($title, $value);
+
+    assertDatabaseCount('products', 1);
+});
