@@ -48,3 +48,11 @@ test('test product has attribute value', function () {
     assertDatabaseCount('products', 1);
     assertNotEmpty($product->hasAttributeValue($value));
 });
+
+test('test product has attribute title', function () {
+    $product = Product::query()->create(['title' => 'milwad-dev']);
+    $product->attachAttribute($title = 'role', 'developer');
+
+    assertDatabaseCount('products', 1);
+    assertNotEmpty($product->hasAttributeTitle($title));
+});
