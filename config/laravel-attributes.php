@@ -15,7 +15,7 @@ return [
         /*
          * Use uuid as primary key.
          */
-        'uuids' => false,
+        'uuids' => false, // Also in beta !!!
     ],
 
     /*
