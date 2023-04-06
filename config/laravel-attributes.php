@@ -8,5 +8,10 @@ return [
      */
     'tables' => [
         'name' => 'attributes',
+
+        /*
+         * Use uuid as primary key.
+         */
+        'uuids' => false,
     ],
 ];
