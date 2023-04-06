@@ -17,4 +17,9 @@ return [
          */
         'uuids' => false,
     ],
+
+    /*
+     * Model class name for attributes table.
+     */
+    'attributes_model' => \Milwad\LaravelAttributes\Attribute::class,
 ];
