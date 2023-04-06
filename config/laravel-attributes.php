@@ -7,6 +7,9 @@ return [
      * Here it's a config of migrations.
      */
     'tables' => [
+        /*
+         * Get table name of migration.
+         */
         'name' => 'attributes',
 
         /*
