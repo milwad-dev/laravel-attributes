@@ -47,6 +47,28 @@ test('test can attach multiple attributes to model', function () {
     ]);
 
     assertDatabaseCount('products', 1);
+    assertDatabaseHas('products', [
+        'title' => 'milwad-dev'
+    ]);
+
+    assertDatabaseCount('attributes', 2);
+    assertDatabaseHas('attributes', [
+        'title' => 'milwad',
+        'value' => 'developer',
+    ]);
+    assertDatabaseHas('attributes', [
+        'title' => 'framework',
+        'value' => 'laravel',
+    ]);
+
+    expect($product->hasAttributeValue('developer'))
+        ->toBeTrue()
+        ->and($product->hasAttributeTitle('milwad'))
+        ->toBeTrue()
+        ->and($product->hasAttributeValue('laravel'))
+        ->toBeTrue()
+        ->and($product->hasAttributeTitle('framework'))
+        ->toBeTrue();
 });
 
 test('test attributes can retrieve in model relation', function () {
