@@ -22,7 +22,7 @@ test('test can attach attributes to model', function () {
 
     assertDatabaseCount('products', 1);
     assertDatabaseHas('products', [
-        'title' => 'milwad-dev'
+        'title' => 'milwad-dev',
     ]);
 
     assertDatabaseCount('attributes', 1);
@@ -52,7 +52,7 @@ test('test can attach multiple attributes to model', function () {
 
     assertDatabaseCount('products', 1);
     assertDatabaseHas('products', [
-        'title' => 'milwad-dev'
+        'title' => 'milwad-dev',
     ]);
 
     assertDatabaseCount('attributes', 2);
