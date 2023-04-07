@@ -49,11 +49,6 @@
       "providers": [
         "Milwad\\LaravelAttributes\\LaravelAttributesServiceProvider"
       ]
-    },
-    "extra": {
-      "branch-alias": {
-        "dev-main": "0.x-dev"
-      }
     }
   },
   "scripts": {
