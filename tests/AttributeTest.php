@@ -115,6 +115,7 @@ test('test can delete all attributes of one model', function () {
     $product->deleteAllAttribute();
 
     assertDatabaseCount('products', 1);
+    assertDatabaseCount('attributes', 0);
 });
 
 /**
