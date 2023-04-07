@@ -185,6 +185,38 @@ composer test
 composer test-coverage
 ```
 
+## Customize
+
+If you want change migration table name or change default model you can use `laravel-attributes` config that exists in `config` folder.
+
+```php
+<?php
+
+return [
+    /*
+     * Table config
+     *
+     * Here it's a config of migrations.
+     */
+    'tables' => [
+        /*
+         * Get table name of migration.
+         */
+        'name' => 'attributes',
+
+        /*
+         * Use uuid as primary key.
+         */
+        'uuids' => false, // Also in beta !!!
+    ],
+
+    /*
+     * Model class name for attributes table.
+     */
+    'attributes_model' => \Milwad\LaravelAttributes\Attribute::class,
+];
+```
+
 # License
 * This package is created and modified by <a href="https://github.com/milwad-dev" target="_blank">Milwad Khosravi</a> for Laravel >= 9 and is released under the MIT License.
 
