@@ -122,6 +122,18 @@ trait Attributable
     }
 
     /**
+     * Delete attribute by value.
+     *
+     * @return int
+     */
+    public function deleteAttributeByValue(string $value)
+    {
+        return $this->getAttributeWhere()
+            ->where('value', $value)
+            ->delete();
+    }
+
+    /**
      * Get attribute with this (model).
      */
     private function getAttributeWhere(): MorphMany
