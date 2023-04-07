@@ -7,6 +7,7 @@ use Milwad\LaravelAttributes\Tests\SetUp\Models\Product;
 
 use function Pest\Laravel\assertDatabaseCount;
 use function Pest\Laravel\assertDatabaseHas;
+use function Pest\Laravel\assertDatabaseMissing;
 use function PHPUnit\Framework\assertEmpty;
 use function PHPUnit\Framework\assertNotEmpty;
 
@@ -116,6 +117,16 @@ test('test can delete all attributes of one model', function () {
 
     assertDatabaseCount('products', 1);
     assertDatabaseCount('attributes', 0);
+});
+
+test('test can delete attribute by title', function () {
+    $product = createProduct();
+    $product->attachAttribute('role', 'developer');
+    $product->deleteAttributeByTitle('role');
+
+    assertDatabaseCount('products', 1);
+    assertDatabaseCount('attributes', 0);
+    assertDatabaseMissing('attributes', ['title' => 'role']);
 });
 
 /**
