@@ -1,5 +1,7 @@
 # Laravel Attributes
 
+<img src="https://banners.beyondco.de/Laravel%20Attributes.png?theme=dark&packageManager=composer+require&packageName=milwad%2Flaravel-attributes&pattern=boxes&style=style_2&description=Make+attributes+easy+for+Laravel&md=1&showWatermark=1&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg" alt="Laravel-Attributes">
+
 [![Latest Stable Version](http://poser.pugx.org/milwad/laravel-attributes/v)](https://packagist.org/packages/milwad/laravel-attributes)
 [![Total Downloads](http://poser.pugx.org/milwad/laravel-attributes/downloads)](https://packagist.org/packages/milwad/laravel-attributes)
 [![License](http://poser.pugx.org/milwad/laravel-attributes/license)](https://packagist.org/packages/milwad/laravel-attributes)
