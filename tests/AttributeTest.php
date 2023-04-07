@@ -76,6 +76,9 @@ test('test attributes can retrieve in model relation', function () {
     $product = Product::query()->with('attributes')->first();
 
     assertEmpty($product->attributes()->get());
+
+    $product->attachAttribute('milwad', 'developer');
+    assertNotEmpty($product->attributes()->get());
 });
 
 test('test product has attribute value', function () {
