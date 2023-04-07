@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasRelationships;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Milwad\LaravelAttributes\Attribute;
 
 trait Attributable
 {
@@ -40,7 +39,7 @@ trait Attributable
             'attributable'    => get_class($this),
         ];
 
-        return Attribute::query()->create($attributes);
+        return $this->attributes()->create($attributes);
     }
 
     /**
@@ -54,7 +53,7 @@ trait Attributable
             $value['attributable_id'] = $this->getKey();
             $value['attributable'] = get_class($this);
 
-            Attribute::query()->create($value);
+            $this->attributes()->create($value);
         }
 
         return $this;
