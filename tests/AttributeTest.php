@@ -86,6 +86,7 @@ test('test product has attribute value', function () {
     $product->attachAttribute('role', $value = 'developer');
 
     assertDatabaseCount('products', 1);
+    assertDatabaseCount('attributes', 1);
     assertNotEmpty($product->hasAttributeValue($value));
 });
 
@@ -94,6 +95,7 @@ test('test product has attribute title', function () {
     $product->attachAttribute($title = 'role', 'developer');
 
     assertDatabaseCount('products', 1);
+    assertDatabaseCount('attributes', 1);
     assertNotEmpty($product->hasAttributeTitle($title));
 });
 
@@ -103,6 +105,7 @@ test('test can attribute delete from model', function () {
     $product->deleteAttribute($title, $value);
 
     assertDatabaseCount('products', 1);
+    assertDatabaseCount('attributes', 0);
 });
 
 test('test can delete all attributes of one model', function () {
