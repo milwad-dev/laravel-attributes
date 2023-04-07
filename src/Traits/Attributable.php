@@ -6,20 +6,23 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasRelationships;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Milwad\LaravelAttributes\Attribute;
 
 trait Attributable
 {
     use HasRelationships;
 
     /**
-     * Get attributes
+     * Get attributes.
      *
      * @return MorphMany
      */
     public function attributes()
     {
-        return $this->morphMany(Attribute::class, 'attributable', 'attributable');
+        return $this->morphMany(
+            config('laravel-attributes.attributes_model'),
+            'attributable',
+            'attributable'
+        );
     }
 
     /**
@@ -30,23 +33,30 @@ trait Attributable
     public function attachAttribute(string $title, string $value)
     {
         $attributes = [
-            'title' => $title,
-            'value' => $value,
+            'title'           => $title,
+            'value'           => $value,
             'attributable_id' => $this->getKey(),
-            'attributable' => get_class($this),
+            'attributable'    => get_class($this),
         ];
 
-        return Attribute::query()->create($attributes);
+        return $this->attributes()->create($attributes);
     }
 
     /**
      * Attach multiple attributes.
      *
-     * @return bool
+     * @return $this
      */
     public function attachAttributes(array $values)
     {
-        return Attribute::query()->insert($values);
+        foreach ($values as $value) {
+            $value['attributable_id'] = $this->getKey();
+            $value['attributable'] = get_class($this);
+
+            $this->attributes()->create($value);
+        }
+
+        return $this;
     }
 
     /**
@@ -56,9 +66,9 @@ trait Attributable
      */
     public function hasAttributeValue(string $value)
     {
-        return (bool) $this->getAttributeWhere()
+        return $this->getAttributeWhere()
             ->where('value', $value)
-            ->first();
+            ->exists();
     }
 
     /**
@@ -68,9 +78,9 @@ trait Attributable
      */
     public function hasAttributeTitle(string $title)
     {
-        return (bool) $this->getAttributeWhere()
+        return $this->getAttributeWhere()
             ->where('title', $title)
-            ->first();
+            ->exists();
     }
 
     /**
@@ -101,6 +111,30 @@ trait Attributable
             ->where('value', $value)
             ->delete();
     }
+
+        /**
+         * Delete attribute by title.
+         *
+         * @return int
+         */
+        public function deleteAttributeByTitle(string $title)
+        {
+            return $this->getAttributeWhere()
+                ->where('title', $title)
+                ->delete();
+        }
+
+        /**
+         * Delete attribute by value.
+         *
+         * @return int
+         */
+        public function deleteAttributeByValue(string $value)
+        {
+            return $this->getAttributeWhere()
+                ->where('value', $value)
+                ->delete();
+        }
 
     /**
      * Get attribute with this (model).

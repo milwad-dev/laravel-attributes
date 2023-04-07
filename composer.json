@@ -2,45 +2,57 @@
   "name": "milwad/laravel-attributes",
   "description": "Make attributes easy",
   "keywords": [
-      "milwad",
-      "milwad-dev",
-      "laravel-attributes",
-      "easy attributes",
-      "laravel",
-      "laravel attributes package"
+    "milwad",
+    "milwad-dev",
+    "laravel-attributes",
+    "easy attributes",
+    "laravel",
+    "laravel attributes package"
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
-      {
-          "name": "milwad khosravi",
-          "email": "milwad.dev@gmail.com",
-          "homepage": "https://milwad.ir",
-          "role": "Developer"
-      }
+    {
+      "name": "milwad khosravi",
+      "email": "milwad.dev@gmail.com",
+      "homepage": "https://milwad.ir",
+      "role": "Developer"
+    }
   ],
   "require": {
-    "php": "^7.3|7.4.*|8.0.*|8.1.*|8.2.*",
-    "laravel/framework": "7.*|8.*|9.*|10.*"
+    "php": "^8.0",
+    "laravel/framework": "9.*|10.*"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^7.0 || ^8.0",
+    "pestphp/pest": "^1.0",
+    "pestphp/pest-plugin-laravel": "^1.0"
   },
   "autoload": {
-      "psr-4": {
-          "Milwad\\LaravelAttributes\\": "src/"
-      }
+    "psr-4": {
+      "Milwad\\LaravelAttributes\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Milwad\\LaravelAttributes\\Tests\\": "tests/"
+    }
   },
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
   },
   "extra": {
-      "laravel": {
-          "providers": [
-              "Milwad\\LaravelAttributes\\LaravelAttributesServiceProvider"
-          ]
-      },
-      "extra" : {
-        "branch-alias" : {
-          "dev-main" : "0.x-dev"
-        }
-      }
+    "laravel": {
+      "providers": [
+        "Milwad\\LaravelAttributes\\LaravelAttributesServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/pest",
+    "test-coverage": "vendor/bin/pest --coverage-html ./coverage"
   }
 }
