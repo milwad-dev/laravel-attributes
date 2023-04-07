@@ -13,7 +13,7 @@ use function PHPUnit\Framework\assertNotEmpty;
 uses(RefreshDatabase::class);
 
 test('test can attach attributes to model', function () {
-    $product = Product::query()->create(['title' => 'milwad-dev']);
+    $product = createProduct();
     $product->attachAttribute($title = 'name', $value = 'implicit value');
 
     assertDatabaseCount('products', 1);
@@ -34,7 +34,7 @@ test('test can attach attributes to model', function () {
 });
 
 test('test can attach multiple attributes to model', function () {
-    $product = Product::query()->create(['title' => 'milwad-dev']);
+    $product = createProduct();
     $product->attachAttributes([
         [
             'title' => 'milwad',
@@ -72,7 +72,7 @@ test('test can attach multiple attributes to model', function () {
 });
 
 test('test attributes can retrieve in model relation', function () {
-    Product::query()->create(['title' => 'milwad-dev']);
+    createProduct();
     $product = Product::query()->with('attributes')->first();
 
     assertEmpty($product->attributes()->get());
@@ -82,7 +82,7 @@ test('test attributes can retrieve in model relation', function () {
 });
 
 test('test product has attribute value', function () {
-    $product = Product::query()->create(['title' => 'milwad-dev']);
+    $product = createProduct();
     $product->attachAttribute('role', $value = 'developer');
 
     assertDatabaseCount('products', 1);
@@ -90,7 +90,7 @@ test('test product has attribute value', function () {
 });
 
 test('test product has attribute title', function () {
-    $product = Product::query()->create(['title' => 'milwad-dev']);
+    $product = createProduct();
     $product->attachAttribute($title = 'role', 'developer');
 
     assertDatabaseCount('products', 1);
@@ -98,7 +98,7 @@ test('test product has attribute title', function () {
 });
 
 test('test can attribute delete from model', function () {
-    $product = Product::query()->create(['title' => 'milwad-dev']);
+    $product = createProduct();
     $product->attachAttribute($title = 'role', $value = 'developer');
     $product->deleteAttribute($title, $value);
 
@@ -106,10 +106,20 @@ test('test can attribute delete from model', function () {
 });
 
 test('test can delete all attributes of one model', function () {
-    $product = Product::query()->create(['title' => 'milwad-dev']);
+    $product = createProduct();
     $product->attachAttribute('role', 'developer');
     $product->attachAttribute('stack', 'laravel');
     $product->deleteAllAttribute();
 
     assertDatabaseCount('products', 1);
 });
+
+/**
+ * Create a product.
+ *
+ * @return Product
+ */
+function createProduct(): Product
+{
+    return Product::query()->create(['title' => 'milwad-dev']);
+}
