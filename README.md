@@ -1,4 +1,10 @@
 # Laravel Attributes
+
+[![Latest Stable Version](http://poser.pugx.org/milwad/laravel-attributes/v)](https://packagist.org/packages/milwad/laravel-attributes)
+[![Total Downloads](http://poser.pugx.org/milwad/laravel-attributes/downloads)](https://packagist.org/packages/milwad/laravel-attributes)
+[![License](http://poser.pugx.org/milwad/laravel-attributes/license)](https://packagist.org/packages/milwad/laravel-attributes)
+[![Passed Tests](https://github.com/milwad-dev/laravel-attributes/actions/workflows/run-tests.yml/badge.svg)](https://github.com/milwad-dev/laravel-attributes/actions/workflows/run-tests.yml)
+[![PHP Version Require](http://poser.pugx.org/milwad/laravel-attributes/require/php)](https://packagist.org/packages/milwad/laravel-attributes)
 ***
 Laravel attributes is a package for create attributes easy. <br>
 With laravel attributes you can make attributes for all model (Polymorphic). <br>
