@@ -9,7 +9,7 @@
     "laravel",
     "laravel attributes package"
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
     {
