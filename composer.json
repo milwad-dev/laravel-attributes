@@ -55,5 +55,9 @@
         "dev-main": "0.x-dev"
       }
     }
+  },
+  "scripts": {
+    "test": "vendor/bin/pest",
+    "test-coverage": "vendor/bin/pest --coverage-html ./coverage"
   }
 }
