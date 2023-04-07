@@ -11,6 +11,9 @@ use function Pest\Laravel\assertDatabaseMissing;
 use function PHPUnit\Framework\assertEmpty;
 use function PHPUnit\Framework\assertNotEmpty;
 
+/*
+ * Use `RefreshDatabase` for delete migration data for each tests.
+ */
 uses(RefreshDatabase::class);
 
 test('test can attach attributes to model', function () {
