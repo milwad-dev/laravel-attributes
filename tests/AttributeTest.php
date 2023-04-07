@@ -129,6 +129,16 @@ test('test can delete attribute by title', function () {
     assertDatabaseMissing('attributes', ['title' => 'role']);
 });
 
+test('test can delete attribute by value', function () {
+    $product = createProduct();
+    $product->attachAttribute('role', 'developer');
+    $product->deleteAttributeByValue('developer');
+
+    assertDatabaseCount('products', 1);
+    assertDatabaseCount('attributes', 0);
+    assertDatabaseMissing('attributes', ['value' => 'developer']);
+});
+
 /**
  * Create a product.
  *
