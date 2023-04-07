@@ -19,7 +19,11 @@ trait Attributable
      */
     public function attributes()
     {
-        return $this->morphMany(Attribute::class, 'attributable', 'attributable');
+        return $this->morphMany(
+            config('laravel-attributes.attributes_model'),
+            'attributable',
+            'attributable'
+        );
     }
 
     /**
