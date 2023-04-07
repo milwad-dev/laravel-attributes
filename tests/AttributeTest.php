@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Milwad\LaravelAttributes\Tests\SetUp\Models\Product;
 
 use function Pest\Laravel\assertDatabaseCount;
+use function Pest\Laravel\assertDatabaseHas;
 use function PHPUnit\Framework\assertEmpty;
 use function PHPUnit\Framework\assertNotEmpty;
 
@@ -13,9 +14,23 @@ uses(RefreshDatabase::class);
 
 test('test can attach attributes to model', function () {
     $product = Product::query()->create(['title' => 'milwad-dev']);
-    $product->attachAttribute('name', 'implicit value');
+    $product->attachAttribute($title = 'name', $value = 'implicit value');
 
     assertDatabaseCount('products', 1);
+    assertDatabaseHas('products', [
+        'title' => 'milwad-dev'
+    ]);
+
+    assertDatabaseCount('attributes', 1);
+    assertDatabaseHas('attributes', [
+        'title' => $title,
+        'value' => $value,
+    ]);
+
+    expect($product->hasAttributeValue($value))
+        ->toBeTrue()
+        ->and($product->hasAttributeTitle($title))
+        ->toBeTrue();
 });
 
 test('test can attach multiple attributes to model', function () {
