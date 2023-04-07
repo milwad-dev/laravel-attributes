@@ -112,29 +112,29 @@ trait Attributable
             ->delete();
     }
 
-    /**
-     * Delete attribute by title.
-     *
-     * @return int
-     */
-    public function deleteAttributeByTitle(string $title)
-    {
-        return $this->getAttributeWhere()
-            ->where('title', $title)
-            ->delete();
-    }
+        /**
+         * Delete attribute by title.
+         *
+         * @return int
+         */
+        public function deleteAttributeByTitle(string $title)
+        {
+            return $this->getAttributeWhere()
+                ->where('title', $title)
+                ->delete();
+        }
 
-    /**
-     * Delete attribute by value.
-     *
-     * @return int
-     */
-    public function deleteAttributeByValue(string $value)
-    {
-        return $this->getAttributeWhere()
-            ->where('value', $value)
-            ->delete();
-    }
+        /**
+         * Delete attribute by value.
+         *
+         * @return int
+         */
+        public function deleteAttributeByValue(string $value)
+        {
+            return $this->getAttributeWhere()
+                ->where('value', $value)
+                ->delete();
+        }
 
     /**
      * Get attribute with this (model).

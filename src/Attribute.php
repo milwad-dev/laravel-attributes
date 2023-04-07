@@ -13,4 +13,11 @@ use Illuminate\Database\Eloquent\Model;
 class Attribute extends Model
 {
     protected $guarded = [];
+
+    public function __construct(array $attributes = [])
+    {
+        $this->table = config('laravel-attributes.tables.name', 'attributes');
+
+        parent::__construct($attributes);
+    }
 }
