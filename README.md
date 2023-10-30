@@ -16,7 +16,7 @@ You don't have any stress for attributes! You can create attributes for any mode
 ***
 
 - `PHP: ^8.0`
-- `Laravel ramework: ^9.0`
+- `Laravel Framework: ^9.0`
 
 | Attributes | L9                 | L10                |
 |------------|--------------------|--------------------|
@@ -28,7 +28,7 @@ You don't have any stress for attributes! You can create attributes for any mode
 composer require milwad/laravel-attributes
 ```
 After publish config files.<br>
-```
+```bash
 php artisan vendor:publish --provider="Milwad\LaravelAttributes\LaravelAttributesServiceProvider"
 ```
 After publish, you migrate the migration file.
