@@ -21,7 +21,7 @@
   ],
   "require": {
     "php": "^8.0",
-    "laravel/framework": "9.*|10.*"
+    "illuminate/contracts": "9.*|10.*"
   },
   "require-dev": {
     "orchestra/testbench": "^7.0 || ^8.0",
