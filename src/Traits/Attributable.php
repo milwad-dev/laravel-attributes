@@ -21,7 +21,6 @@ trait Attributable
         return $this->morphMany(
             config('laravel-attributes.attributes_model'),
             'attributable',
-            'attributable'
         );
     }
 
@@ -36,7 +35,7 @@ trait Attributable
             'title'           => $title,
             'value'           => $value,
             'attributable_id' => $this->getKey(),
-            'attributable'    => get_class($this),
+            'attributable_type'    => get_class($this),
         ];
 
         return $this->attributes()->create($attributes);
@@ -51,7 +50,7 @@ trait Attributable
     {
         foreach ($values as $value) {
             $value['attributable_id'] = $this->getKey();
-            $value['attributable'] = get_class($this);
+            $value['attributable_type'] = get_class($this);
 
             $this->attributes()->create($value);
         }
@@ -143,6 +142,6 @@ trait Attributable
     {
         return $this->attributes()
             ->where('attributable_id', $this->getKey())
-            ->where('attributable', get_class($this));
+            ->where('attributable_type', get_class($this));
     }
 }

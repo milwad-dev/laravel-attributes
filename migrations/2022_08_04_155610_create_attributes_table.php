@@ -16,13 +16,9 @@ return new class() extends Migration {
             $table->id();
             $table->string('title');
             $table->text('value');
-            if (config('laravel-attributes.tables.uuids', false)) {
-                $table->uuid('attributable_id');
-            } else {
-                $table->unsignedBigInteger('attributable_id');
-            }
-            $table->string('attributable');
+            $table->morphs('attributable');
             $table->timestamps();
+
         });
     }
 
