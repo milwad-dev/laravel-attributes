@@ -20,7 +20,7 @@ trait Attributable
     {
         return $this->morphMany(
             config('laravel-attributes.attributes_model'),
-            'attributable',
+            'attributable'
         );
     }
 
@@ -32,9 +32,9 @@ trait Attributable
     public function attachAttribute(string $title, string $value)
     {
         $attributes = [
-            'title'           => $title,
-            'value'           => $value,
-            'attributable_id' => $this->getKey(),
+            'title'                => $title,
+            'value'                => $value,
+            'attributable_id'      => $this->getKey(),
             'attributable_type'    => get_class($this),
         ];
 

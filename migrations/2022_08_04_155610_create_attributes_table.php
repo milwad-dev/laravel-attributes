@@ -18,7 +18,6 @@ return new class() extends Migration {
             $table->text('value');
             $table->morphs('attributable');
             $table->timestamps();
-
         });
     }
 
