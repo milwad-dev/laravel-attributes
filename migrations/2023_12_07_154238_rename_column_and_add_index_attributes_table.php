@@ -12,7 +12,7 @@ return new class() extends Migration {
     {
         Schema::table(config('laravel-attributes.tables.name', 'attributes'), function (Blueprint $table) {
             $table->renameColumn('attributable', 'attributable_type');
-            $this->index(['attributable_type', 'attributable_id']);
+            $table->index(['attributable_type', 'attributable_id']);
         });
     }
 
@@ -23,7 +23,7 @@ return new class() extends Migration {
     {
         Schema::table(config('laravel-attributes.tables.name', 'attributes'), function (Blueprint $table) {
             $table->renameColumn('attributable_type', 'attributable');
-            $this->index(['attributable_type', 'attributable_id']);
+            $table->index(['attributable_type', 'attributable_id']);
         });
     }
 };
