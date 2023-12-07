@@ -11,6 +11,11 @@ return [
          * Get table name of migration.
          */
         'name' => 'attributes',
+
+        /*
+         * Use uuid as primary key.
+         */
+        'uuids' => false, // Also in beta !!!
     ],
 
     /*
