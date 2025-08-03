@@ -22,6 +22,7 @@ You don't have any stress for attributes! You can create attributes for any mode
 | 1.0        | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
 | 1.1        | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
 | 1.2        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
+| 1.3        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 # Installation
 ***
